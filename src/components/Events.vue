@@ -1,9 +1,9 @@
 <template>
   <v-main>
-    <div class="d-flex flex-column">
-      <v-card v-for="ev in events" v-bind:key="ev.name" class="event-card">
+    <div class="d-flex flex-column align-center">
+      <v-card width="60%" v-for="ev in events" v-bind:key="ev.name" class="event-card d-flex flex-column">
         <v-card-title>{{ev.name}}</v-card-title>
-        <v-card-text>
+        <v-card-text class="justify-start" style="font-weight: bold; width: 90pt">
           {{ev.date}}
         </v-card-text>
       </v-card>
@@ -45,16 +45,8 @@ export default {
       this.loadEvents()
     },
     loadEvents() {
-      this.events = [
-        {
-          name: 'Wakacje',
-          date: "2021-07-21"
-        },
-        {
-          name: 'Spanko',
-          date: ""
-        },
-      ]
+      //todo loading events
+      this.events = []
     }
   },
   created() {
