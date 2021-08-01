@@ -2,10 +2,23 @@
 AppWrite EventsApp example
 
 ## QuickStart
+
+### Installation
+To install AppWrite on your machine you need Docker.
+Then just run the command below:
+```shell
+docker run -it --rm \
+    --volume /var/run/docker.sock:/var/run/docker.sock \
+    --volume "$(pwd)"/appwrite:/usr/src/code/appwrite:rw \
+    --entrypoint="install" \
+    appwrite/appwrite:0.9.3
+```
+
 ### FrontEnd
 Interaction with AppWrite from frontend
 ```javascript
 //appwrite-service.js
+//installation 'npm install appwrite'
 import {Appwrite} from "appwrite";
 
 const client = new Appwrite()
