@@ -1,5 +1,6 @@
 <template>
   <v-main>
+    <v-btn color="red" v-on:click="deleteLast">Usuń ostatni</v-btn>
     <div class="d-flex flex-column align-center">
       <v-card width="60%" v-for="ev in events" v-bind:key="ev.name" class="event-card d-flex flex-column">
         <v-card-title>{{ev.name}}</v-card-title>
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+import apw from "../service/appwrite-service"
 export default {
   name: "Events",
   data: function () {
@@ -38,15 +40,19 @@ export default {
     }
   },
   methods: {
-    addEvent() {
+    async addEvent() {
       this.dialog = false
       console.log("Add " + this.newName + ", " + this.newDate)
-      //todo add event
+      await apw.addEvent(this.newName, this.newDate)
       this.loadEvents()
     },
-    loadEvents() {
-      //todo loading events
-      this.events = []
+    async loadEvents() {
+      let response = await apw.loadEvents()
+      this.events = response.documents
+    },
+    async deleteLast() {
+      await apw.deleteLast();
+      this.loadEvents();
     }
   },
   created() {
