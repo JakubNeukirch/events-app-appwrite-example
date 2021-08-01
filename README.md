@@ -33,7 +33,7 @@ export default {
 ```
 
 ### Functions
-AppWrite function examples. Dart is much slower in execution (5s) than JavaScript (0.2s), so it is recommended to use JS.
+AppWrite function examples. [According to my small benchmark](https://twitter.com/Kubenqpl/status/1415704522484297730) - dart is much slower in execution (5s) than JavaScript (0.2s), so it is recommended to use JS.
 #### Dart
 pubspec.yaml
 ```yaml
